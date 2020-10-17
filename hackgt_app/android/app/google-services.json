@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "73610808576",
+    "firebase_url": "https://hackgt7-73cb4.firebaseio.com",
+    "project_id": "hackgt7-73cb4",
+    "storage_bucket": "hackgt7-73cb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:73610808576:android:11fc52a3e3cdb16e9cf7e5",
+        "android_client_info": {
+          "package_name": "com.example.hackgt_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "73610808576-lodpf3ui3933smd4pg682u55a5sv3f9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLvHGkXYLGKqhKK4hiXZmtawYSxKUOeGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "73610808576-lodpf3ui3933smd4pg682u55a5sv3f9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

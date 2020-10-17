@@ -12,7 +12,7 @@ final kLabelStyle = TextStyle(
 );
 
 final kBoxDecorationStyle = BoxDecoration(
-  color: Color(0xFFF3E5F5),
+  color: Color(0xFFFFE0B2),
   borderRadius: BorderRadius.circular(10.0),
   boxShadow: [
     BoxShadow(
