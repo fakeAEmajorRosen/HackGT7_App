@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackgt_app/Screens/sameClassPpl.dart';
@@ -15,6 +16,28 @@ class transition extends StatefulWidget {
 
 class _transitionState extends State<transition> {
   bool _rememberMe = false;
+
+  //////////////////////////////// time_lapse ////////////
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    startTime();
+  }
+
+  startTime() async {
+    var duration = new Duration(seconds: 5);
+    return new Timer(duration, route);
+  }
+  route() {
+    Navigator.pushReplacement(context, MaterialPageRoute(
+        builder: (context) => sameClassPpl()
+    )
+    );
+  }
+//////////////////////////////////time_lapse end///////////////////////////
+
+
   Widget _buildDNEBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
@@ -83,7 +106,7 @@ class _transitionState extends State<transition> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Please Wait, \n We are matching you with your study partner.',
+                        'Please Wait, \n\nWe are matching you with your study partner.',
                         style: TextStyle(
                           color: Colors.orange,
                           fontFamily: 'OpenSans',
@@ -92,7 +115,7 @@ class _transitionState extends State<transition> {
                         ),
                       ),
                       //DelayedDisplay(),
-                      _buildDNEBtn(),
+                      //_buildDNEBtn(),
                       SizedBox(height:70.0),
                       // _buildSignInWithText(),
                       // _buildSocialBtnRow(),

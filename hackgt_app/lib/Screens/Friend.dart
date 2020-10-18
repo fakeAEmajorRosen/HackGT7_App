@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackgt_app/Screens/ChatRoom.dart';
-
+import 'package:hackgt_app/Screens/HomeScreen.dart';
 
 class Friends extends StatefulWidget {
   @override
@@ -83,7 +83,25 @@ class _FriendsState extends State<Friends> {
 
         );
   }
+  Widget _buildHomeBtn() {
+    return RaisedButton(
 
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return HomeScreen();
+            },
+          ),
+        );
+      },
+      padding: EdgeInsets.all(10.0),
+      shape: CircleBorder(),
+      color: Colors.orange,
+      child: Icon(Icons.home),
+    );
+  }
   Widget _Friend2Btn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 5.0),
@@ -181,6 +199,7 @@ class _FriendsState extends State<Friends> {
                 ),
               ),
 
+
               Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
@@ -205,13 +224,26 @@ class _FriendsState extends State<Friends> {
                       //DelayedDisplay(),
                       _Friend1Btn(),
                       _Friend2Btn(),
+                      //_buildHomeBtn(),
                       //SizedBox(height:70.0),
                       // _buildSignInWithText(),
                       // _buildSocialBtnRow(),
                     ],
                   ),
                 ),
-              )
+              ),Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: _buildHomeBtn(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

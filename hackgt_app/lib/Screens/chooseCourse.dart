@@ -71,7 +71,7 @@ class _chooseCourseState extends State<chooseCourse> {
           SizedBox(height: 50.0),
 
           RaisedButton(
-            child: Text('MATH1551',
+            child: Text('MATH 1551',
                 style: TextStyle(
                   color: Colors.white,
                   letterSpacing: 1.5,
@@ -116,7 +116,7 @@ class _chooseCourseState extends State<chooseCourse> {
             color: Colors.orange,
           ),
           RaisedButton(
-            child: Text('CS1301 ',
+            child: Text('CS     1301 ',
                 style: TextStyle(
                   color: Colors.white,
                   letterSpacing: 1.5,
@@ -131,7 +131,7 @@ class _chooseCourseState extends State<chooseCourse> {
             color: Colors.orange,
           ),
           RaisedButton(
-            child: Text('CS1332 ',
+            child: Text('CS     1332 ',
                 style: TextStyle(
                   color: Colors.white,
                   letterSpacing: 1.5,

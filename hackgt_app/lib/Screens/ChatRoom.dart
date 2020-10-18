@@ -183,29 +183,24 @@ class _ChatRoomState extends State<ChatRoom> {
       ),
     );
   }
-  // Widget _buildArrowBtn() {
-  //   return Container(
-  //     padding: EdgeInsets.only(left: 10.0),
-  //      alignment: Alignment(-1.0, 1.0),
-  //     child: RaisedButton(
-  //     padding: EdgeInsets.all(10),
-  //     onPressed: () {
-  //       Navigator.push(
-  //         context,
-  //         MaterialPageRoute(
-  //           builder: (context) {
-  //             return Friends();
-  //           },
-  //         ),
-  //       );
-  //     },
-  //     //padding: EdgeInsets.all(10.0),
-  //     shape: CircleBorder(),
-  //     color: Colors.orange,
-  //     child: Icon(Icons.arrow_back),
-  //   ),
-  //   );
-  // }
+  Widget _buildHomeBtn() {
+    return RaisedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return HomeScreen();
+            },
+          ),
+        );
+      },
+      padding: EdgeInsets.all(10.0),
+      shape: CircleBorder(),
+      color: Colors.orange,
+      child: Icon(Icons.home),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,6 +230,7 @@ class _ChatRoomState extends State<ChatRoom> {
                   color: Colors.white,
                 ),
               ),
+             
               Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
@@ -246,33 +242,12 @@ class _ChatRoomState extends State<ChatRoom> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      // Text(
-                      //   'REMOTE PARTNER',
-                      //   style: TextStyle(
-                      //     color: Colors.orange,
-                      //     fontFamily: 'OpenSans',
-                      //     fontSize: 35.0,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
-                      // Text(
-                      //   '\nSign in',
-                      //   style: TextStyle(
-                      //     color: Colors.black,
-                      //     fontFamily: 'OpenSans',
-                      //     fontSize: 25.0,
-                      //     fontWeight: FontWeight.bold,
-                      //   ),
-                      // ),
-
-
-
-
                       SizedBox(height: 300.0),
                       _buildNameTF(),
                       SizedBox(
                         height: 30.0,
                       ),
+
                      // _buildArrowBtn(),
                       // _buildPasswordTF(),
                       // _buildForgotPasswordBtn(),
@@ -285,7 +260,19 @@ class _ChatRoomState extends State<ChatRoom> {
                     ],
                   ),
                 ),
-              )
+              ), Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: <Widget>[
+                    Expanded(
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: _buildHomeBtn(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

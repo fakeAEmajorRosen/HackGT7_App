@@ -59,7 +59,7 @@ class _chooseMajorState extends State<chooseMajor> {
       body: Column(
         children: <Widget>[
           SizedBox(height: 50.0),
-    Text('What is your major?',
+    Text('Hi Rosen! \nWhat is your major?',
         style: TextStyle(
         color: Colors.black,
         letterSpacing: 1.5,

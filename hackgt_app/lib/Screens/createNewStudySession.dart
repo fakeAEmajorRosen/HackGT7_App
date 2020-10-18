@@ -211,7 +211,7 @@ class _CreateNewStudySessionState extends State<CreateNewStudySession> {
                   physics: NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
-                    vertical: 120.0,
+                    vertical: 60.0,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -219,12 +219,26 @@ class _CreateNewStudySessionState extends State<CreateNewStudySession> {
                       Text(
                         'New Study Session',
                         style: TextStyle(
+                          color: Colors.orange,
+                          fontFamily: 'OpenSans',
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 15.0),
+
+                      Text(
+                        'Enter a Time:',
+                        style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+                      SizedBox(height: 15.0),
+                      _buildTimeTF(),
+                      SizedBox(height: 15.0),
                       Text(
                         '\n Select a Study Group',
                         style: TextStyle(
@@ -234,29 +248,29 @@ class _CreateNewStudySessionState extends State<CreateNewStudySession> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 15.0),
-                      _buildClassBtns(classNames), //NEED TO FIGURE OUT HOW TO GET LIST OF CLASS NAMES
+                      _buildClassBtns(classNames),
+                      _buildCreateBtn(),//NEED TO FIGURE OUT HOW TO GET LIST OF CLASS NAMES
                     ],
                   ),
                 ),
               ),
-              Container(
-                child: Text(
-                    'Enter a Time',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontFamily: 'OpenSans',
-                      fontSize: 26.0,
-                      fontWeight: FontWeight.bold,
-                )
-              )
-              ),
-              Container(
-                child: _buildTimeTF()
-              ),
-              Container(
-                  child: _buildCreateBtn()
-              ),
+              // Container(
+              //   child: Text(
+              //       'Enter a Time',
+              //       style: TextStyle(
+              //         color: Colors.black,
+              //         fontFamily: 'OpenSans',
+              //         fontSize: 26.0,
+              //         fontWeight: FontWeight.bold,
+              //   )
+              // )
+              // ),
+              // Container(
+              //               //   child: _buildTimeTF()
+              //               // ),
+              // Container(
+              //     child: _buildCreateBtn()
+              // ),
               Container(
                   child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
