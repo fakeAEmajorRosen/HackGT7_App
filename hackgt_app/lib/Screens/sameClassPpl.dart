@@ -14,8 +14,175 @@ class sameClassPpl extends StatefulWidget {
 class _sameClassPplState extends State<sameClassPpl> {
   // List<String> names = ["Buzz", "George P Burdell", "Jone Doe"];
 
+  Widget _People1Btn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        onPressed: () {
+          // Do stuff
+        },
+        padding: EdgeInsets.all(30.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          side: BorderSide(color: Colors.orange, width:5),
+        ),
+        //ShapeBorder: ,
+        color: Colors.white,
+        //children: Stack(),
+        child: Row(
+          children: <Widget>[
+            Image(image: AssetImage("assets/user-profile.png"), height: 40.0),
+            Padding(padding: EdgeInsets.all(15.0),),
+            Text.rich(
+              TextSpan(
+                //text: 'Hello', // default text style
+                children: <TextSpan>[
+                  TextSpan(text: 'George P Burdell \n\n', style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 1.5,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
+                  ),
+                  TextSpan(text: 'Currently Taking:\nCS 1331\nMATH 1552', style: TextStyle(
+                    color: Colors.black,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
 
-  bool _rememberMe = false;
+                  ),
+                ],
+              ),
+
+            ),
+          ],
+        ),
+
+      ),
+
+    );
+  }
+
+  Widget _People2Btn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        onPressed: () {
+          // Do stuff
+        },
+        padding: EdgeInsets.all(30.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          side: BorderSide(color: Colors.orange, width:5),
+        ),
+        //ShapeBorder: ,
+        color: Colors.white,
+        //children: Stack(),
+        child: Row(
+          children: <Widget>[
+            Image(image: AssetImage("assets/user-profile.png"), height: 40.0),
+            Padding(padding: EdgeInsets.all(15.0),),
+            Text.rich(
+              TextSpan(
+                //text: 'Hello', // default text style
+                children: <TextSpan>[
+                  TextSpan(text: 'Buzz Buzz \n\n', style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 1.5,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
+                  ),
+                  TextSpan(text: 'Currently Taking:\nCHEM 2311\nCS 1332', style: TextStyle(
+                    color: Colors.black,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
+
+                  ),
+                ],
+              ),
+
+            ),
+          ],
+        ),
+
+      ),
+
+    );
+  }
+
+  Widget _People3Btn() {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      width: double.infinity,
+      child: RaisedButton(
+        elevation: 5.0,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return Friends();
+              },
+            ),
+          );
+        },
+        padding: EdgeInsets.all(30.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+          side: BorderSide(color: Colors.orange, width:5),
+        ),
+        //ShapeBorder: ,
+        color: Colors.white,
+        //children: Stack(),
+        child: Row(
+          children: <Widget>[
+            Image(image: AssetImage("assets/user-profile.png"), height: 40.0),
+            Padding(padding: EdgeInsets.all(15.0),),
+            Text.rich(
+              TextSpan(
+                //text: 'Hello', // default text style
+                children: <TextSpan>[
+                  TextSpan(text: 'John Doe \n\n', style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 1.5,
+                    fontSize: 22.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
+                  ),
+                  TextSpan(text: 'Currently Taking:\nPHYS 2211\nCS 1371', style: TextStyle(
+                    color: Colors.black,
+                    letterSpacing: 1.5,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'OpenSans',
+                  ),
+
+                  ),
+                ],
+              ),
+
+            ),
+          ],
+        ),
+
+      ),
+
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,95 +190,59 @@ class _sameClassPplState extends State<sameClassPpl> {
         value: SystemUiOverlayStyle.light,
         child: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
-          child: Column(
+          child: Stack(
             children: <Widget>[
-                 Text(
-                    '\n We found others who are\n in the same class with\n you!',
-                    style: TextStyle(
-                      color: Colors.orange,
-                      fontFamily: 'OpenSans',
-                      fontSize: 35.0,
-                      fontWeight: FontWeight.bold,
-                    ),
+              Container(
+                height: double.infinity,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+              ),
+              Container(
+                height: double.infinity,
+                child: SingleChildScrollView(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 40.0,
+                    vertical: 40.0,
                   ),
-              SizedBox(height: 50.0),
-              ButtonTheme(
-                minWidth: 100,
-                  height: 50,
-                  child: RaisedButton(
-                    child: Text(' Geogre P Burdell \n Currently Taking: \n CS1331\n MATH1552',
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'We found others who are in the same class with you!',
                         style: TextStyle(
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
+                          color: Colors.orange,
                           fontFamily: 'OpenSans',
-                        )),
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    color: Colors.orange,
-                  )
-              ),
-              SizedBox(height: 50.0),
-              ButtonTheme(
-                  minWidth: 100,
-                  height: 50,
-                  child: RaisedButton(
-                    child: Text(' Buzz Buzz \n Currently Taking: \n CHEM2311\n CS1332',
-                        style: TextStyle(
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                          fontSize: 24.0,
+                          fontSize: 30.0,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'OpenSans',
-                        )),
-                    onPressed: () {},
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    color: Colors.orange,
-                  )
-              ),
-              SizedBox(height: 50.0),
-              ButtonTheme(
-                  minWidth: 100,
-                  height: 50,
-                  child: RaisedButton(
-                    child: Text(' John Doe \n Currently Taking: \n PHYS2211\n CS1332',
-                        style: TextStyle(
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'OpenSans',
-                        )),
-                    onPressed: () {
+                        ),
+                      ),
 
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Friends();
-                            },
-                          ),
-                        );
-
-                    },
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0),
-                    ),
-                    color: Colors.orange,
-                  )
-              ),
-
-                      ],
-                    ),
+                      SizedBox(height: 10.0),
+                      _People1Btn(),
+                      SizedBox(height: 30.0),
+                      _People2Btn(),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      _People3Btn(),
+                      // _buildPasswordTF(),
+                      // _buildForgotPasswordBtn(),
+                      // _buildRememberMeCheckbox(),
+                      // _buildLoginBtn(),
+                      // // _buildSignInWithText(),
+                      // // _buildSocialBtnRow(),
+                      // _buildSignupBtn(),
+                    ],
                   ),
-              ),
-              );
-
-
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
