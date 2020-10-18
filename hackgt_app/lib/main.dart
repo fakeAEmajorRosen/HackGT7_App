@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hackgt_app/Screens/LoginScreen.dart';
+//import 'package:hackgt_app/Screens/Wrapper.dart';
+import 'package:hackgt_app/Screens/google.dart';
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginScreen(),
+      home: LoginScreen(),//LoginPage(),// , //Wrapper(),  //
     );
   }
 }

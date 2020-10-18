@@ -3,125 +3,107 @@ import 'package:flutter/services.dart';
 import 'package:hackgt_app/utilities/c.dart';
 import 'package:hackgt_app/Screens/SignUp.dart';
 import 'package:hackgt_app/Screens/HomeScreen.dart';
-import 'package:hackgt_app/Screens/Authenticates/sign_in.dart';
 // import 'package:flutter_app/Screens/SelectScreen.dart';
 // import 'package:flutter_app/Screens/SignUpScreen.dart';
 // import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class LoginScreen extends StatefulWidget {
+class CreateNewAssignment extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _CreateNewAssignmentState createState() => _CreateNewAssignmentState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _CreateNewAssignmentState extends State<CreateNewAssignment> {
   bool _rememberMe = false;
 
-  Widget _buildEmailTF() {
+  Widget _buildNameTF() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            keyboardType: TextInputType.emailAddress,
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'OpenSans',
-            ),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.perm_identity,
-                color: Colors.black,
-              ),
-              hintText: 'Email',
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildPasswordTF() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        SizedBox(height: 10.0),
-        Container(
-          alignment: Alignment.centerLeft,
-          decoration: kBoxDecorationStyle,
-          height: 60.0,
-          child: TextField(
-            obscureText: true,
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: 'OpenSans',
-            ),
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.lock,
-                color: Colors.black,
-              ),
-              hintText: 'Password',
-              hintStyle: kHintTextStyle,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildForgotPasswordBtn() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
-        padding: EdgeInsets.only(right: 0.0),
-        child: Text(
-          'Forgot Password?',
+        Text(
+          'Name',
           style: kLabelStyle,
         ),
-      ),
-    );
-  }
-
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.black),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.black,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value;
-                });
-              },
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.book,
+                color: Colors.black,
+              ),
+              hintText: 'Assignment Name',
+              hintStyle: kHintTextStyle,
             ),
           ),
-          Text(
-            'Remember me',
-            style: kLabelStyle,
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
-
+  Widget _buildTimeTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Name',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            keyboardType: TextInputType.text,
+            style: TextStyle(
+              color: Colors.black,
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.lock_clock,
+                color: Colors.black,
+              ),
+              hintText: '2020/01/01',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+  Widget _buildHomeBtn() {
+    return RaisedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              return HomeScreen();
+            },
+          ),
+        );
+      },
+      padding: EdgeInsets.all(10.0),
+      shape: CircleBorder(),
+      color: Colors.orange,
+      child: Icon(Icons.home),
+    );
+  }
   Widget _buildLoginBtn() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.0),
+      padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
@@ -142,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         color: Colors.orange,
         child: Text(
-          'LOGIN',
+          'Done!',
           style: TextStyle(
             color: Colors.white,
             letterSpacing: 1.5,
@@ -150,91 +132,6 @@ class _LoginScreenState extends State<LoginScreen> {
             fontWeight: FontWeight.bold,
             fontFamily: 'OpenSans',
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildgoogleLoginBtn() {
-    return OutlineButton(
-      padding: EdgeInsets.symmetric(vertical: 2.0),
-      splashColor: Colors.grey,
-      onPressed: () {
-        signInWithGoogle().then((result) {
-          if (result != null) {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) {
-                  return HomeScreen();
-                },
-              ),
-            );
-          }
-        });
-      },
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      highlightElevation: 0,
-      borderSide: BorderSide(color: Colors.orange),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(5.0),
-            ),
-            Image(image: AssetImage("assets/google_logo.png"), height: 13.0),
-            Padding(
-              padding: EdgeInsets.all(3.0),
-              child: Text(
-                'Sign in with Google',
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.orange,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSignupBtn() {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return SignUp();
-            },
-          ),
-        );
-      },
-      child: RichText(
-        text: TextSpan(
-          children: [
-            TextSpan(
-              text: 'Don\'t have an account? ',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18.0,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
-            TextSpan(
-              text: 'Sign Up',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.underline
-              ),
-            ),
-          ],
         ),
       ),
     );
@@ -259,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 height: double.infinity,
                 child: SingleChildScrollView(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: AlwaysScrollableScrollPhysics(),
                   padding: EdgeInsets.symmetric(
                     horizontal: 40.0,
                     vertical: 120.0,
@@ -268,36 +165,56 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'REMOTE PARTNER',
-                        style: TextStyle(
-                          color: Colors.orange,
-                          fontFamily: 'OpenSans',
-                          fontSize: 35.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '\nSign in',
+                        '\n Create New Assignment!',
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'OpenSans',
-                          fontSize: 25.0,
+                          fontSize: 30.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       SizedBox(height: 30.0),
-                      _buildEmailTF(),
-                      SizedBox(
-                        height: 30.0,
+                      Text(
+                        '\n Enter Assignment Name',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'OpenSans',
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      _buildPasswordTF(),
-                      _buildForgotPasswordBtn(),
-                      _buildRememberMeCheckbox(),
+                      _buildNameTF(),
+                      SizedBox(height: 30.0),
+                      Text(
+                        '\n Enter a time:',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'OpenSans',
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      _buildTimeTF(),
+                      SizedBox(
+                        height: 20.0,
+                      ),
                       _buildLoginBtn(),
-                      _buildgoogleLoginBtn(),
+                      Container(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child: _buildHomeBtn(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                       // _buildSignInWithText(),
                       // _buildSocialBtnRow(),
-                      _buildSignupBtn(),
+
                     ],
                   ),
                 ),
